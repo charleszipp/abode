@@ -1,6 +1,6 @@
 # Abode Infrax
 
-Abode is a sample implementation of [Azure Digital Twins](https://docs.microsoft.com/en-us/azure/digital-twins/) primarily used for learning the technology
+This directory contains the infrastructure templates required to deploy the solution.
 
 ## Setup Configuration
 
