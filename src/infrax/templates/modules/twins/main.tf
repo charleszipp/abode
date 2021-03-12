@@ -29,19 +29,19 @@ resource "azurerm_iothub" "iot_twins" {
 }
 
 ## DIGITAL TWINS
-resource "azurerm_digital_twins_instance" "adt_twins" {
-  name                = "adt${local.suffix}"
+resource "azurerm_digital_twins_instance" "dt_twins" {
+  name                = "dt${local.suffix}"
   resource_group_name = azurerm_resource_group.rg_twins.name
   location            = azurerm_resource_group.rg_twins.location
 }
-resource "azurerm_key_vault_secret" "kv_core_adt_host_name" {
-  name         = "adt-host-name"
-  value        = azurerm_digital_twins_instance.adt_twins.host_name
+resource "azurerm_key_vault_secret" "kv_core_dt_host_name" {
+  name         = "dt-host-name"
+  value        = azurerm_digital_twins_instance.dt_twins.host_name
   key_vault_id = var.kv_id
 }
 resource "azurerm_monitor_diagnostic_setting" "log_twins" {
   name                       = "log${local.suffix}"
-  target_resource_id         = azurerm_digital_twins_instance.adt_twins.id
+  target_resource_id         = azurerm_digital_twins_instance.dt_twins.id
   log_analytics_workspace_id = var.wksp_id
 
   log { category = "DigitalTwinsOperation" }
@@ -79,7 +79,7 @@ resource "azurerm_function_app" "fn_twins" {
 
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY" = var.ai_instrumentation_key,
-    "ADT_INSTANCE_URL"               = "https://${azurerm_digital_twins_instance.adt_twins.host_name}"
+    "DT_INSTANCE_URL"               = "https://${azurerm_digital_twins_instance.dt_twins.host_name}"
   }
 
   identity {
@@ -90,7 +90,7 @@ resource "azurerm_function_app" "fn_twins" {
 
 ### Assign function managed identity to 
 resource "azurerm_role_assignment" "example" {
-  scope                = azurerm_digital_twins_instance.adt_twins.id
+  scope                = azurerm_digital_twins_instance.dt_twins.id
   role_definition_name = "Azure Digital Twins Data Owner"
   principal_id         = azurerm_user_assigned_identity.id_twins.principal_id
 }
