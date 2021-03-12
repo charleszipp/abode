@@ -1,10 +1,22 @@
 locals {
-  suffix = "-twins-${var.env}-${var.location_suffix}-${var.app}"
+  suffix   = "-twins-${var.env}-${var.location_suffix}-${var.app}"
+  suffix_2 = "twins${var.env}${var.location_suffix}${var.app}"
 }
 resource "azurerm_resource_group" "rg_twins" {
   name     = "rg${local.suffix}"
   location = var.location
 }
+
+## STORAGE
+resource "azurerm_storage_account" "st_twins" {
+  name                     = "st${local.suffix_2}"
+  resource_group_name      = azurerm_resource_group.rg_twins.name
+  location                 = azurerm_resource_group.rg_twins.location
+  account_tier             = "Standard"
+  account_replication_type = "LRS"
+}
+
+## IOT HUB
 resource "azurerm_iothub" "iot_twins" {
   name                = "iot${local.suffix}"
   resource_group_name = azurerm_resource_group.rg_twins.name
@@ -15,6 +27,8 @@ resource "azurerm_iothub" "iot_twins" {
     capacity = "1"
   }
 }
+
+## DIGITAL TWINS
 resource "azurerm_digital_twins_instance" "adt_twins" {
   name                = "adt${local.suffix}"
   resource_group_name = azurerm_resource_group.rg_twins.name
@@ -35,4 +49,48 @@ resource "azurerm_monitor_diagnostic_setting" "log_twins" {
   log { category = "ModelsOperation" }
   log { category = "QueryOperation" }
   metric { category = "AllMetrics" }
+}
+
+## TELEMETRY HANDLER FUNCTION
+resource "azurerm_user_assigned_identity" "id_twins" {
+  name = "id${local.suffix}"
+  resource_group_name = azurerm_resource_group.rg_twins.name
+  location            = azurerm_resource_group.rg_twins.location
+}
+resource "azurerm_app_service_plan" "asp_twins" {
+  name                = "asp${local.suffix}"
+  location            = azurerm_resource_group.rg_twins.location
+  resource_group_name = azurerm_resource_group.rg_twins.name
+  kind                = "FunctionApp"
+
+  sku {
+    tier = "Dynamic"
+    size = "Y1"
+  }
+}
+resource "azurerm_function_app" "fn_twins" {
+  name                       = "fn${local.suffix}"
+  location                   = azurerm_resource_group.rg_twins.location
+  resource_group_name        = azurerm_resource_group.rg_twins.name
+  app_service_plan_id        = azurerm_app_service_plan.asp_twins.id
+  storage_account_name       = azurerm_storage_account.st_twins.name
+  storage_account_access_key = azurerm_storage_account.st_twins.primary_access_key
+  os_type                    = "linux"
+
+  app_settings = {
+    "APPINSIGHTS_INSTRUMENTATIONKEY" = var.ai_instrumentation_key,
+    "ADT_INSTANCE_URL"               = "https://${azurerm_digital_twins_instance.adt_twins.host_name}"
+  }
+
+  identity {
+    type = "UserAssigned"
+    identity_ids = [ azurerm_user_assigned_identity.id_twins.id ]
+  }
+}
+
+### Assign function managed identity to 
+resource "azurerm_role_assignment" "example" {
+  scope                = azurerm_digital_twins_instance.adt_twins.id
+  role_definition_name = "Azure Digital Twins Data Owner"
+  principal_id         = azurerm_user_assigned_identity.id_twins.principal_id
 }

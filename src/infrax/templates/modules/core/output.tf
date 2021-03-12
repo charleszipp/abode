@@ -10,3 +10,6 @@ output "kv_id" {
 output "wksp_id" {
   value = azurerm_log_analytics_workspace.wksp_core.id
 }
+output "ai_instrumentation_key" {
+  value = azurerm_application_insights.ai_core.instrumentation_key
+}

@@ -22,3 +22,7 @@ variable "wksp_id" {
   type        = string
   description = "The log analytics workspace id"
 }
+variable "ai_instrumentation_key" {
+  type        = string
+  description = "The application insights instrumentation key"
+}

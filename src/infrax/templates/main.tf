@@ -25,10 +25,11 @@ module "core" {
 module "twins" {
   source = "./modules/twins"
 
-  location        = var.location
-  location_suffix = var.location_short
-  env             = var.env
-  app             = var.app
-  kv_id           = module.core.kv_id
-  wksp_id         = module.core.wksp_id
+  location               = var.location
+  location_suffix        = var.location_short
+  env                    = var.env
+  app                    = var.app
+  kv_id                  = module.core.kv_id
+  wksp_id                = module.core.wksp_id
+  ai_instrumentation_key = module.core.ai_instrumentation_key
 }
