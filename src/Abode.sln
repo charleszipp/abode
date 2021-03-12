@@ -11,6 +11,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Abode.Models", "Abode.Model
 	ProjectSection(SolutionItems) = preProject
 		Abode.Models\Floor.json = Abode.Models\Floor.json
 		Abode.Models\Room.json = Abode.Models\Room.json
+		Space.json = Space.json
+		Thermostat.json = Thermostat.json
 	EndProjectSection
 EndProject
 Global
