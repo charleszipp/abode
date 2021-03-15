@@ -16,7 +16,7 @@ In addition to the Prerequisites defined in the [README](README.md), the followi
 - [Create an Azure Digital Twin](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-set-up-instance-cli#create-the-azure-digital-twins-instance) instance
 - Download the sample project [digital-twins-samples](https://docs.microsoft.com/en-us/azure/digital-twins/tutorial-end-to-end#get-required-resources)
 
-> Note: Use the Visual Studio Installer to ensure your installation of Visual Studio 2019 includes the ASP.NET and web development workload/framework. It is required so that Azure Functions (used in the end-to-end solution/exercises below) can be published.
+> Note: Use the Visual Studio Installer to ensure your installation of Visual Studio 2019 includes the `ASP.NET and web development` workload. It is required so that Azure Functions (used in the end-to-end solution/exercises below) can be published.
 
 ## Learning Exercises
 
@@ -32,5 +32,5 @@ The following exercises will help you build an end-to-end solution using the [Tu
 - What troubleshooting options are available?
 - How can we automate the provisioning of the resources and the deployment?
 - Is there an event signaling service that might act as an alternative to Azure Event Grid when working with Azure Digital Twins? If so, how would the integration work?
-- What are some other events that are not included in the e2e sample and an Azure Digital Twins instance might subscribe to?
+- What are some other events (in addition to telemetry and property changes) that could be used in an Azure Digital Twins solution?
 - How can work be divided between a group of developers building an e2e Azure Digital Twins solution?
