@@ -37,6 +37,6 @@ Use [this guide](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-use
 
 ## Things to Consider
 
-- What types of projects might have this been useful? What are some past projects that could have leveraged ADT?
-- What types of projects would this not be a good fit? What are some past projects where this would not have fit and why?
-- What features might be expected from the Azure Digital Twins platform that wasn't mentioned in the reading and videos?
+- What might a Digital Twins solution look like without the Azure Digital Twins? What other Azure services would be used?
+- Are there any other services within Azure that share some similarities with Azure Digital Twins?
+- How would you describe Azure Digital Twins to someone unfamiliar with the technology?
