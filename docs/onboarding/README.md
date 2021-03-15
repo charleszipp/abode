@@ -17,5 +17,5 @@ The following outlines resources that can be used for getting up to speed with A
 1. Digital Twin SDK & API
 1. Noisy Neighbors (Definition & RBAC)
 1. Time Series Insights
-1. Deploy and Run E2E Sample
+1. [Deploy and Run E2E Sample](06-e2e-sample.md)
 1. Query Performance
