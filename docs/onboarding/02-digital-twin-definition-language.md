@@ -45,5 +45,5 @@ The following exercises involve creating and modifying models using DTDL. The mo
 ## Things to Consider
 
 - How often should a new version of the model be uploaded? Should each deployment create new versions?
-- What is the appropriate use of Property vs Telemetry vs Metric?
+- What is the appropriate use of Property vs Telemetry?
 - When are relationships necessary? What capability do they introduce from a query standpoint?
