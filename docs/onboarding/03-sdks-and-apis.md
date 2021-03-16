@@ -1,6 +1,6 @@
 # Chapter 3: Digital Twin SDK's and API's
 
-Azure digital twins provides a C# SDK for programmatic management of models and twins. The following covers the capabilities of the SDK's and APIs
+Azure digital twins provides an SDK for multiple languages for programmatic management of models and twins. The following covers the capabilities of the C# SDK's and APIs
 
 - [Use the API's and SDKs](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-use-apis-sdks)
 - [Create Graph with APIs](https://docs.microsoft.com/en-us/azure/digital-twins/concepts-twins-graph#create-with-the-apis)
@@ -16,8 +16,7 @@ Azure digital twins provides a C# SDK for programmatic management of models and 
 
 Using the models created from [Learning Exercises in Chapter 2](02-digital-twin-definition-language.md), create a console app that is able to do the following operations.
 
-1. Creates a model
-1. Checks if a model exists before attempting to create it.
+1. Creates a model if it does not yet exist
 1. Creates a twin using the model from #1
 1. Updates a property of the twin created in #3
 1. Reads a property from the twin created in #3 and writes the value to the console.
@@ -28,7 +27,7 @@ Using the models created from [Learning Exercises in Chapter 2](02-digital-twin-
 
 ## Things to Consider
 
-- How would need to be added, if anything, to facilitate unit testing?
+- What would need to be added, if anything, to facilitate unit testing?
 - What configuration is necessary perform SDK operations? (i.e. ADT instance url)
 - What level of access is needed to perform SDK operations?
 - How do we ensure the code is consistent with the model schema expresses in the DTDL json files?
