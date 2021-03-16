@@ -7,6 +7,8 @@ DTDL is the schema by which models are described. Its important to understand ho
 
 > Model management is especially important for understanding what a CI/CD pipeline for ADT models might need to include.
 
+- [Brick](https://docs.brickschema.org/intro.html) - Alternative to DTDL and some other aspects of Azure Digital Twins.
+
 ## Key Points
 
 - Using Object Oriented analogy, model is a class/type. A twin is an instance of a given model.
