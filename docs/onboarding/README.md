@@ -5,6 +5,7 @@ The following outlines resources that can be used for getting up to speed with A
 ## Prerequisites
 
 - [Azure Subscription](https://azure.microsoft.com/en-gb/free/?WT.mc_id=A261C142F)
+  - A role that has [permissions](https://docs.microsoft.com/en-gb/azure/digital-twins/how-to-set-up-instance-portal#prerequisites-permission-requirements) to create and manage resources, as well as user access to resources is required.
 - [Azure CLI](https://docs.microsoft.com/en-gb/cli/azure/install-azure-cli)
   - [Set up your session](https://docs.microsoft.com/en-us/azure/digital-twins/tutorial-end-to-end#set-up-cloud-shell-session) and register your Azure Subscription with the Azure Digital Twins namespace
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs/)

@@ -3,7 +3,7 @@
 The following docs will introduce an end-to-end solution where an Azure Digital Twins instance is connected to other Azure services for management of devices and data.
 
 - [Tutorial: Build out an end-to-end solution](https://docs.microsoft.com/en-us/azure/digital-twins/tutorial-end-to-end) - ~25 min to read. We will be using this tutorial in the learning exercises below.
-- [Ingest Telemetry from IoT Hub](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-ingest-iot-hub-data) - ~6 min to read. Example that shows how Azure Digital Twins is driven with data from an [IoT Hub](https://docs.microsoft.com/en-gb/azure/iot-hub/about-iot-hub)
+- [Ingest Telemetry from IoT Hub](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-ingest-iot-hub-data) - ~6 min to read. Example that shows how Azure Digital Twins is driven with data from an [IoT Hub](https://docs.microsoft.com/en-gb/azure/iot-hub/about-iot-hub).
 - [Manage endpoints and routes in Azure Digital Twins](https://docs.microsoft.com/en-gb/azure/digital-twins/how-to-manage-routes-portal) - ~9 min to read. Example that shows how to route ADT event notifications to connected resources.
 
 ## Key Points
@@ -29,4 +29,4 @@ In this section you will build an end-to-end solution using the [Tutorial: Build
 - What steps would you take, if any, to strengthen the security of the solution?
 - How can work be divided between a group of developers building an e2e Azure Digital Twins solution?
 - Are there any other events (in addition to telemetry and property changes) that we would want to use in an Azure Digital Twins solution?
-- What other services could be used in an Azure Digital Twin end-to-end solution (e.g, Azure Monitor)?
+- What other services could be used in an Azure Digital Twin end-to-end solution (e.g., Azure Monitor)?
