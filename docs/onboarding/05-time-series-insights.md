@@ -1,8 +1,9 @@
 # Chapter 5: Time Series Insights and Azure Digital Twin
 
 - [Overview](https://docs.microsoft.com/en-us/azure/time-series-insights/overview-what-is-tsi) - ~5 min not including video intro, covers basics of IoT data and TSI
-- [Getting Started Tutorial](https://docs.microsoft.com/en-us/azure/time-series-insights/tutorial-set-up-environment)
-- [Storage w/ TSI](https://docs.microsoft.com/en-us/azure/time-series-insights/concepts-storage )
+- [Getting Started Tutorial](https://docs.microsoft.com/en-us/azure/time-series-insights/tutorial-set-up-environment) - ~20 min including following steps 
+- [Storage in TSI](https://docs.microsoft.com/en-us/azure/time-series-insights/concepts-storage ) - ~6 min to read
+- [Integrating ADT with TSI](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-integrate-time-series-insights) - ~30 min including following steps, assuming prerequisite of ADT instance has been met
 
 ## Key Points
 - Time series data is comprised of repeated measurements or events which are collected over time and indexed in time order. 
