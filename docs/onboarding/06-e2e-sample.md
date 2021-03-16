@@ -15,8 +15,7 @@ In addition to the Prerequisites defined in the [README](README.md), the followi
 - [Add the Azure IoT Extension](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-use-cli#get-the-extension) for Azure CLI
 - [Create an Azure Digital Twin](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-set-up-instance-cli#create-the-azure-digital-twins-instance) instance
 - Download the sample project [digital-twins-samples](https://docs.microsoft.com/en-us/azure/digital-twins/tutorial-end-to-end#get-required-resources)
-
-> Note: Use the Visual Studio Installer to ensure your installation of Visual Studio 2019 includes the `ASP.NET and web development` workload. It is required so that Azure Functions (used in the end-to-end solution/exercises below) can be published.
+- Ensure your installation of Visual Studio 2019 includes the [Azure Development workload](https://docs.microsoft.com/en-us/dotnet/azure/configure-visual-studio). This workload enables the application to publish Azure Function Apps.
 
 ## Learning Exercises
 
