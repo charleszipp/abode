@@ -3,8 +3,6 @@
 - [Overview](https://docs.microsoft.com/en-us/azure/time-series-insights/overview-what-is-tsi) - ~5 min not including video intro, covers basics of IoT data and TSI
 - [Getting Started Tutorial](https://docs.microsoft.com/en-us/azure/time-series-insights/tutorial-set-up-environment)
 - [Storage w/ TSI](https://docs.microsoft.com/en-us/azure/time-series-insights/concepts-storage )
-- - [High Level Demo](https://www.youtube.com/watch?v=ScmK-bKJ4MI) - ~6 min. High level walk through of the offering.
-- *[Customer Deep Dive](https://www.youtube.com/watch?v=Kbv1a_74FC0) - ~1 hour. Dives deep into real-world implementation.
 
 ## Key Points
 - Time series data is comprised of repeated measurements or events which are collected over time and indexed in time order. 
