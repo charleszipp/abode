@@ -2,6 +2,7 @@
 using Azure;
 using Azure.DigitalTwins.Core;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
@@ -16,11 +17,11 @@ namespace TestAbode
             _models = new List<MockModelData>();
         }
 
-        public async Task<string> CreateModel(string models)
+        public Task<string> CreateModel(string models)
         {
             MockModelData modelData = new MockModelData(models);
             _models.Add(modelData);
-            return "Model created.";
+            return Task.FromResult("Model created.");
         }
 
         public Task<bool> CheckModelExists(string dtdlId)

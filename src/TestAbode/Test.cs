@@ -17,6 +17,7 @@ namespace TestAbode
             Model testModel = new(mockClient);
             await testModel.UploadModel(testDtdl);
             MockModelData mockModelData = new(testDtdl);
+
             bool result = await mockClient.CheckModelExists(mockModelData.Id);
             Assert.IsTrue(result);
         }
@@ -27,6 +28,7 @@ namespace TestAbode
             mockClient = new MockDigitalTwinsClient();
             Model testModel = new(mockClient);
             await testModel.UploadModel(testDtdl);
+
             // Upload again the same model
             string response = await testModel.UploadModel(testDtdl);
             Assert.AreEqual("Model cannot be uploaded as it already exists.", response);
