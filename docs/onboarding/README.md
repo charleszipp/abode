@@ -23,5 +23,5 @@ The following outlines resources that can be used for getting up to speed with A
 4. [Query Performance](04-query-performance.md)
 5. [Deploy and Run E2E Sample](05-e2e-sample.md)
 6. [Time Series Insights](06-time-series-insights.md)
-7. Logging
+7. [Logging](07-logging.md)
 8. [Noisy Neighbors & Multi-tenancy](08-noisy-neighbor-multi-tenancy.md)
