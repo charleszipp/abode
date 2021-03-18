@@ -1,0 +1,17 @@
+{
+  "@id": "dtmi:example:Yard;1",
+  "@type": "Interface",
+  "displayName": "Yard",
+  "@context": "dtmi:dtdl:context;2",
+  "contents": [
+    {
+      "@type": "Relationship",
+      "name": "contains"
+    },
+    {
+      "@type": "Property",
+      "name": "data",
+      "schema": "string"
+    }
+  ]
+}

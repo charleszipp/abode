@@ -1,0 +1,14 @@
+{
+  "@id": "dtmi:example:Camera;1",
+  "@type": "Interface",
+  "displayName": "Camera",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "Light",
+      "schema": "boolean"
+    }
+  ],
+  "@context": "dtmi:dtdl:context;2"
+}
+
