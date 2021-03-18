@@ -12,10 +12,10 @@ Within Azure, logging and alerting are the two primary activities used for perfo
 
 ## Key Points
 
-- Per tenant, Log Analytics is a single logging service instance that logs the internal behavior of a managed service.
+- Per tenant, Log Analytics is a shared service instance that logs the internal behavior of many managed services.
 - Enabling logging for a managed service is as simple as opting in to a shared Log Analytics instance via the creation of a Log Analytics Workspace.
-- Logging for an Azure Digital Twins (ADT) instance primarily means capturing data about the [ADT data plane](https://docs.microsoft.com/en-us/rest/api/digital-twins/dataplane/twins) and sending that data to Log analytics to be analyzed later for diagnostics and troubleshooting. (when enabling logs, they can also be concurrently sent to an event hub or storage account for archiving)
-- When accessing logs from within your ADT instance of the Azure portal, example kusto queries related to the service are ready for use. However, custom queries can also be created.
+- Logs from an Azure Digital Twins (ADT) instance primarily means capturing data about the [ADT data plane](https://docs.microsoft.com/en-us/rest/api/digital-twins/dataplane/twins) and sending that data to Log analytics to be analyzed later for diagnostics and troubleshooting. Logs can also be concurrently sent to a Azure Event Hub or an Azure storage account for archiving.)
+- When accessing logs from within your ADT instance of the Azure portal, example kusto queries related to the service are ready for use. However, custom kusto queries can also be created.
 
 ## Learning Exercises
 
