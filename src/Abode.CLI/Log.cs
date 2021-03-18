@@ -1,5 +1,6 @@
 ﻿using System;
-namespace TwinApp
+
+namespace Abode
 {
     public static class Log
     {
@@ -24,6 +25,5 @@ namespace TwinApp
         {
             Out(s, ConsoleColor.DarkGreen);
         }
-
     }
 }

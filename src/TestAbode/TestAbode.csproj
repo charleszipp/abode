@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\TwinApp\TwinApp.csproj" />
+    <ProjectReference Include="..\Abode.CLI\Abode.CLI.csproj" />
   </ItemGroup>
 
 </Project>

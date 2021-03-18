@@ -7,14 +7,14 @@ using System.Collections.Generic;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace TwinApp
+namespace Abode
 {
-    public class Twin : ITwin
+    public class Abode : IAbode
     {
         readonly DigitalTwinsClient _client;
         readonly Uri adtInstanceUrl;
 
-        public Twin()
+        public Abode()
         {
             try
             {
@@ -82,11 +82,11 @@ namespace TwinApp
             {
                 string relId = $"{srcId}-contains->{targetId}";
                 await _client.CreateOrReplaceRelationshipAsync(srcId, relId, relationship);
-                Console.WriteLine("Created relationship successfully");
+                Log.Ok("Created relationship successfully");
             }
             catch (RequestFailedException e)
             {
-                Console.WriteLine($"Create relationship error: {e.Status}: {e.Message}");
+                Log.Error($"Create relationship error: {e.Status}: {e.Message}");
             }
         }
 
@@ -103,7 +103,7 @@ namespace TwinApp
             }
             catch (RequestFailedException e)
             {
-                Console.WriteLine($"Relationship retrieval error: {e.Status}: {e.Message}");
+                Log.Error($"Relationship retrieval error: {e.Status}: {e.Message}");
             }
         }
     }

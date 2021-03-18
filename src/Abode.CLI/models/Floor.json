@@ -1,5 +1,5 @@
 {
-  "@id": "dtmi:example:Floor;1",
+  "@id": "dtmi:abode:Floor;1",
   "@type": "Interface",
   "displayName": "Floor",
   "@context": "dtmi:dtdl:context;2",
@@ -11,12 +11,12 @@
       "properties": [
         {
           "name": "ownershipUser",
-          "@type":"Property",
+          "@type": "Property",
           "schema": "string"
         },
         {
           "name": "ownershipDepartment",
-          "@type":"Property",
+          "@type": "Property",
           "schema": "string"
         }
       ]

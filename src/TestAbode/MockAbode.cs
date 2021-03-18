@@ -3,14 +3,14 @@ using Azure.DigitalTwins.Core;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using TwinApp;
+using Abode;
 
-namespace TwinAppTest
+namespace TestAbode
 {
-    class MockTwin : ITwin
+    class MockAbode : IAbode
     {
         int count = 0;
-        public MockTwin() { }
+        public MockAbode() { }
 
         public async Task<string> CreateModel(string models)
         {
@@ -34,7 +34,6 @@ namespace TwinAppTest
             {
                 return true;
             }
-                
             return false;
         }
 
@@ -42,6 +41,7 @@ namespace TwinAppTest
         {
             throw new NotImplementedException();
         }
+
         public AsyncPageable<DigitalTwinsModelData> GetModelsAsync()
         {
             throw new NotImplementedException();

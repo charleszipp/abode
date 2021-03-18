@@ -1,37 +1,34 @@
 ﻿using Azure;
-using Azure.DigitalTwins.Core;
 using Newtonsoft.Json.Linq;
-using System;
 using System.Threading.Tasks;
 
-namespace TwinApp
+namespace Abode
 {
     public class Model
     {
-        readonly ITwin _twin;
-        public Model(ITwin twin)
+        readonly IAbode _abode;
+        public Model(IAbode abode)
         {
-            _twin = twin;
+            _abode = abode;
         }
         public async Task<string> UploadModel(string dtdl)
         {
             string response;
             string dtdlId = JObject.Parse(dtdl)["@id"].Value<string>();
 
-            if (await _twin.CheckIfModelExist(dtdlId))
+            if (await _abode.CheckIfModelExist(dtdlId))
             {
                 Log.Error($"Model: {dtdlId} already exists");
                 response = "Model already exists.";
                 return response;
             }
-
             try
             {
-                response = await _twin.CreateModel(dtdl);
+                response = await _abode.CreateModel(dtdl);
             }
             catch (RequestFailedException e)
             {
-                Console.WriteLine($"Upload model error: {e.Status}: {e.Message}");
+                Log.Error($"Upload model error: {e.Status}: {e.Message}");
                 response = "Upload model error.";
             }
             return response;

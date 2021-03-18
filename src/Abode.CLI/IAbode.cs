@@ -3,9 +3,9 @@ using Azure.DigitalTwins.Core;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace TwinApp
+namespace Abode
 {
-    public interface ITwin
+    public interface IAbode
     {
         Task<string> CreateModel(string models);
 

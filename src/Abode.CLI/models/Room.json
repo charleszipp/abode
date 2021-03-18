@@ -1,8 +1,18 @@
 {
-  "@id": "dtmi:example:Room;1",
+  "@id": "dtmi:abode:Room;1",
   "@type": "Interface",
   "displayName": "Room",
+  "@context": "dtmi:dtdl:context;2",
   "contents": [
+    {
+      "@type": "Relationship",
+      "name": "contains"
+    },
+    {
+      "@type": "Property",
+      "name": "data",
+      "schema": "string"
+    },
     {
       "@type": "Property",
       "name": "Temperature",
@@ -13,6 +23,5 @@
       "name": "Humidity",
       "schema": "double"
     }
-  ],
-  "@context": "dtmi:dtdl:context;2"
+  ]
 }

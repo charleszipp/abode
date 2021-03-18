@@ -1,0 +1,23 @@
+{
+  "@id": "dtmi:abode:Thermostat;1",
+  "@type": "Interface",
+  "displayName": "Thermostat",
+  "@context": "dtmi:dtdl:context;2",
+  "contents": [
+    {
+      "@type": "Property",
+      "name": "DisplayName",
+      "schema": "string"
+    },
+    {
+      "@type": "Property",
+      "name": "FirmwareVersion",
+      "schema": "string"
+    },
+    {
+      "@type": "Property",
+      "name": "Temperature",
+      "schema": "double"
+    }
+  ]
+}
