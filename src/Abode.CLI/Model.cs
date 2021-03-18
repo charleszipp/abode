@@ -19,7 +19,7 @@ namespace Abode
             if (await _client.CheckIfModelExist(dtdlId))
             {
                 Log.Error($"Model: {dtdlId} already exists");
-                response = "Model already exists.";
+                response = "Model cannot be uploaded as it already exists.";
                 return response;
             }
             try

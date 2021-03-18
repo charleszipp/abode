@@ -1,40 +1,36 @@
-﻿using Azure;
+﻿using Abode;
+using Azure;
 using Azure.DigitalTwins.Core;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Abode;
 
 namespace TestAbode
 {
     class MockDigitalTwinsClient : IDigitalTwinsClient
     {
-        List<string> _models;
+        List<MockModelData> _models;
 
         public MockDigitalTwinsClient() {
-            _models = new List<string>();
+            _models = new List<MockModelData>();
         }
 
         public async Task<string> CreateModel(string models)
         {
-            string response;
-            if (await CheckIfModelExist(models))
-            {
-                response = "Cannot create Model, already exists.";
-            }
-            else
-            {
-                _models.Add(models);
-                response = "Model created.";
-            }
-            return response;
+            MockModelData modelData = new MockModelData(models);
+            _models.Add(modelData);
+            return "Model created.";
         }
 
         public Task<bool> CheckIfModelExist(string dtdlId)
         {
-            if (_models.Contains(dtdlId))
+            foreach (MockModelData modelData in _models)
             {
-                return Task.FromResult(true);
+                if (modelData.Id == dtdlId)
+                {
+                    return Task.FromResult(true);
+                }
             }
             return Task.FromResult(false); 
         }
@@ -62,6 +58,19 @@ namespace TestAbode
         public Task<Response<BasicDigitalTwin>> CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(string twinId, BasicDigitalTwin twinData)
         {
             throw new NotImplementedException();
+        }
+    }
+
+    public class MockModelData
+    {
+        public string Id { get; set; }
+    
+        public string Data { get; set; }
+
+        public MockModelData(string dtdl)
+        {
+            Id = JObject.Parse(dtdl)["@id"].Value<string>();
+            Data = dtdl;
         }
     }
 }
