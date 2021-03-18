@@ -9,7 +9,7 @@ namespace Abode
     {
         Task<string> CreateModel(string models);
 
-        Task<bool> CheckIfModelExist(string dtdlId);
+        Task<bool> CheckModelExists(string dtdlId);
  
         Task<Response<DigitalTwinsModelData[]>> CreateModelsAsync(IEnumerable<string> models);
 

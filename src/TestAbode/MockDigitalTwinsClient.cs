@@ -23,7 +23,7 @@ namespace TestAbode
             return "Model created.";
         }
 
-        public Task<bool> CheckIfModelExist(string dtdlId)
+        public Task<bool> CheckModelExists(string dtdlId)
         {
             foreach (MockModelData modelData in _models)
             {

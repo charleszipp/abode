@@ -36,7 +36,7 @@ namespace Abode
             Log.Ok($"Service client created – ready to go");
         }
 
-        public async Task<bool> CheckIfModelExist(string dtdlId)
+        public async Task<bool> CheckModelExists(string dtdlId)
         {
             AsyncPageable<DigitalTwinsModelData> modelDataList = GetModelsAsync();
             await foreach (DigitalTwinsModelData modelData in modelDataList)

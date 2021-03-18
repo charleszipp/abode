@@ -16,7 +16,7 @@ namespace Abode
             string response;
             string dtdlId = JObject.Parse(dtdl)["@id"].Value<string>();
 
-            if (await _client.CheckIfModelExist(dtdlId))
+            if (await _client.CheckModelExists(dtdlId))
             {
                 Log.Error($"Model: {dtdlId} already exists");
                 response = "Model cannot be uploaded as it already exists.";

@@ -17,7 +17,7 @@ namespace TestAbode
             Model testModel = new(mockClient);
             await testModel.UploadModel(testDtdl);
             MockModelData mockModelData = new(testDtdl);
-            bool result = await mockClient.CheckIfModelExist(mockModelData.Id);
+            bool result = await mockClient.CheckModelExists(mockModelData.Id);
             Assert.IsTrue(result);
         }
 
