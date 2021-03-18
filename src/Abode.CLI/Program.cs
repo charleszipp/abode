@@ -10,22 +10,22 @@ namespace Abode
     {
         static async Task Main()
         {
-            IAbode abode = new Abode();
+            IDigitalTwinsClient client = new AzureDigitalTwinsClient();
 
             // Upload the models to the service
             Console.WriteLine();
             Console.WriteLine($"Upload the Room model");
             string roomDtdl = File.ReadAllText("models/Room.json");
-            Model roomModel = new(abode);
+            Model roomModel = new(client);
             await roomModel.UploadModel(roomDtdl);
 
             Console.WriteLine($"Upload the Thermostat model");
             string thermostatDtdl = File.ReadAllText("models/Thermostat.json");
-            Model thermostatModel = new(abode);
+            Model thermostatModel = new(client);
             await thermostatModel.UploadModel(thermostatDtdl);
 
             // Read a list of models back from the service
-            AsyncPageable<DigitalTwinsModelData> modelDataList = abode.GetModelsAsync();
+            AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
             await foreach (DigitalTwinsModelData md in modelDataList)
             {
                 Console.WriteLine($"Model: {md.Id}");
@@ -43,15 +43,15 @@ namespace Abode
             try
             {
                 roomTwinData.Id = "roomTwin-0";
-                await abode.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(roomTwinData.Id, roomTwinData);
+                await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(roomTwinData.Id, roomTwinData);
                 Log.Ok($"Created Room twin: {roomTwinData.Id}");
 
                 thermostatTwinData.Id = "thermostatTwin-0";
-                await abode.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(thermostatTwinData.Id, thermostatTwinData);
+                await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(thermostatTwinData.Id, thermostatTwinData);
                 Log.Ok($"Created Thermostat twin: {thermostatTwinData.Id}");
 
                 // Connect the twins with a relationship
-                await abode.CreateRelationshipAsync("roomTwin-0", "thermostatTwin-0");
+                await client.CreateRelationshipAsync("roomTwin-0", "thermostatTwin-0");
             }
             catch (RequestFailedException e)
             {
@@ -59,7 +59,7 @@ namespace Abode
             }
 
             // List the relationships
-            await abode.ListRelationshipsAsync("roomTwin-0");
+            await client.ListRelationshipsAsync("roomTwin-0");
         }
     }
 }

@@ -7,37 +7,39 @@ using Abode;
 
 namespace TestAbode
 {
-    class MockAbode : IAbode
+    class MockDigitalTwinsClient : IDigitalTwinsClient
     {
-        int count = 0;
-        public MockAbode() { }
+        List<string> _models;
+
+        public MockDigitalTwinsClient() {
+            _models = new List<string>();
+        }
 
         public async Task<string> CreateModel(string models)
         {
             string response;
-            if (count > 0)
+            if (await CheckIfModelExist(models))
             {
                 response = "Cannot create Model, already exists.";
             }
             else
             {
+                _models.Add(models);
                 response = "Model created.";
             }
-            count++;
             return response;
         }
 
-        public async Task<bool> CheckIfModelExist(string dtdlId)
+        public Task<bool> CheckIfModelExist(string dtdlId)
         {
-            await Task.Delay(0);
-            if (count > 0)
+            if (_models.Contains(dtdlId))
             {
-                return true;
+                return Task.FromResult(true);
             }
-            return false;
+            return Task.FromResult(false); 
         }
 
-        public async Task<Response<DigitalTwinsModelData[]>> CreateModelsAsync(IEnumerable<string> models)
+        public Task<Response<DigitalTwinsModelData[]>> CreateModelsAsync(IEnumerable<string> models)
         {
             throw new NotImplementedException();
         }
@@ -47,17 +49,17 @@ namespace TestAbode
             throw new NotImplementedException();
         }
 
-        public async Task CreateRelationshipAsync(string srcId, string targetId)
+        public Task CreateRelationshipAsync(string srcId, string targetId)
         {
             throw new NotImplementedException();
         }
 
-        public async Task ListRelationshipsAsync(string srcId)
+        public Task ListRelationshipsAsync(string srcId)
         {
             throw new NotImplementedException();
         }
 
-        public async Task<Response<BasicDigitalTwin>> CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(string twinId, BasicDigitalTwin twinData)
+        public Task<Response<BasicDigitalTwin>> CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(string twinId, BasicDigitalTwin twinData)
         {
             throw new NotImplementedException();
         }

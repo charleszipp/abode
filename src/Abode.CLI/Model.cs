@@ -6,17 +6,17 @@ namespace Abode
 {
     public class Model
     {
-        readonly IAbode _abode;
-        public Model(IAbode abode)
+        readonly IDigitalTwinsClient _client;
+        public Model(IDigitalTwinsClient client)
         {
-            _abode = abode;
+            _client = client;
         }
         public async Task<string> UploadModel(string dtdl)
         {
             string response;
             string dtdlId = JObject.Parse(dtdl)["@id"].Value<string>();
 
-            if (await _abode.CheckIfModelExist(dtdlId))
+            if (await _client.CheckIfModelExist(dtdlId))
             {
                 Log.Error($"Model: {dtdlId} already exists");
                 response = "Model already exists.";
@@ -24,7 +24,7 @@ namespace Abode
             }
             try
             {
-                response = await _abode.CreateModel(dtdl);
+                response = await _client.CreateModel(dtdl);
             }
             catch (RequestFailedException e)
             {

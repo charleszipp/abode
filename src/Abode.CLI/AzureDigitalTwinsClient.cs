@@ -9,12 +9,12 @@ using System.Threading.Tasks;
 
 namespace Abode
 {
-    public class Abode : IAbode
+    public class AzureDigitalTwinsClient : IDigitalTwinsClient
     {
         readonly DigitalTwinsClient _client;
         readonly Uri adtInstanceUrl;
 
-        public Abode()
+        public AzureDigitalTwinsClient()
         {
             try
             {

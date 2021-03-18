@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Abode
 {
-    public interface IAbode
+    public interface IDigitalTwinsClient
     {
         Task<string> CreateModel(string models);
 
