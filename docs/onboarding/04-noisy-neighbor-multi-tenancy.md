@@ -17,7 +17,7 @@ There are 4 discrete steps or considerations when initially building a multi-ten
 
 ## Considerations and limits for ADT
 
-# Relevant Service Limits	
+### **Relevant Service Limits**	
 -	1 model graph per Azure Digital Twins instance
 -	*10 Azure Digital Twin instances per region, per subscription (adjustable)
 -	ADT is available in 10 regions
@@ -28,16 +28,18 @@ There are 4 discrete steps or considerations when initially building a multi-ten
 -	4000 Query Units (CPU, IOPS, memory) /second (adjustable)
 -	Event egress 100 RPS (adjustable)
 
-# If models are not standardized
+### **If models are not standardized**
 We see above that you can only have one model graph per Azure Digital Twins instance. Given this, if multiple tenants exist withing the same Azure Digital Twins Instance, you will need to consider how to handle model entropy; that is, how to delineate models of the same name that have different fields and belong to different tenants. 
+
 If using the siloed approach described above, this is straightforward: no legal entropy will occur as each tenant will have their own graph, and thus any models with the same name may simply overwrite older models (the exact desired behavior of this, we would have to determine). 
 With multiple tenants however, we cannot expect tenants to be aware of the naming other tenants are using. The simplest solution would be model standardization. If all tenants use the same models, then no entropy will occur. However, if for some reason project requirements specify that each tenant be allowed their own model definitions, to use a pool model you will have to find a workaround. One way could be associating tenantID with model names, but this could potentially introduce other issues especially if there is a character limit on model names (unknown, although maximum size of a single model is 1 MB). 
+
 Another consideration is that there is a stated service limit of 10,000 models per instance. If using a pooled approach without model standardization, you would have to ensure that this limit is extremely flexible, or else come up with logic around what will happen as you approach your model limit (will tenants be moved into a new instance? Be told they need to reduce their number of models? Only be allowed a certain number of models each?)
 
-# If dealing with a huge number of tenants
+### **If dealing with a huge number of tenants**
 This is another place where the limits of “adjustable” will have to be more rigidly defined. As it stands, you are allowed 10 instances per region, per subscription. If you were using the siloed approach, since there are 10 available regions that would mean you would hit a maximum of 100 tenants before you had to create a new subscription. Many developers have the preference of only having to maintain a single subscription, which could make the siloed approach a nonstarter. 
 
-# Performance 
+### **Performance**
 Many of the service limits exist per-Twin. Likely, if using the pooled approach, you would be having tenants sharing an Azure Digital Twin Instance, which supports 200k Twins, and not sharing Twins themselves. However, the Query API and Event Routes API do not explicitly state whether their limits are per-Twin or per-instance. This would be an important thing to clarify before deciding on a siloed or pooled approach, as those numbers per-instance could make Noisy Neighbors a very huge concern.
 
 ## Key Points
