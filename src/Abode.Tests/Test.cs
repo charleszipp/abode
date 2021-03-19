@@ -2,7 +2,7 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Threading.Tasks;
 using Abode;
 
-namespace TestAbode
+namespace Abode.Tests
 {
     [TestClass]
     public class Test

@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abode.CLI", "Abode.CLI\Abod
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abode.Domain", "Abode.Domain\Abode.Domain.csproj", "{3C062E9A-97F6-487E-AD71-B44B9F8A7933}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestAbode", "TestAbode\TestAbode.csproj", "{4F0DB696-1906-4FDF-A4DE-A69979F7EB0D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abode.Tests", "Abode.Tests\Abode.Tests.csproj", "{B3E2C0D9-7D22-48E4-BDEE-FAB7AAD7C344}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,10 @@ Global
 		{3C062E9A-97F6-487E-AD71-B44B9F8A7933}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C062E9A-97F6-487E-AD71-B44B9F8A7933}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C062E9A-97F6-487E-AD71-B44B9F8A7933}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4F0DB696-1906-4FDF-A4DE-A69979F7EB0D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4F0DB696-1906-4FDF-A4DE-A69979F7EB0D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4F0DB696-1906-4FDF-A4DE-A69979F7EB0D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4F0DB696-1906-4FDF-A4DE-A69979F7EB0D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B3E2C0D9-7D22-48E4-BDEE-FAB7AAD7C344}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B3E2C0D9-7D22-48E4-BDEE-FAB7AAD7C344}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B3E2C0D9-7D22-48E4-BDEE-FAB7AAD7C344}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B3E2C0D9-7D22-48E4-BDEE-FAB7AAD7C344}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

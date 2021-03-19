@@ -7,7 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace TestAbode
+namespace Abode.Tests
 {
     class MockDigitalTwinsClient : IDigitalTwinsClient
     {
