@@ -24,8 +24,9 @@ The following exercises involve creating and modifying models using DTDL. The mo
 ### Create a new model
 
 1. Create a new model of any device in your home. Include some properties on the model that describe the device. Include telemetry that may be sent from the device.
-2. Upload the model to an Azure Digital Twin instance.
-3. Create a new twin from the new model
+2. Validate your model using the [DTDL validator](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-parse-models#use-the-dtdl-validator-sample).
+3. Upload the model to an Azure Digital Twin instance.
+4. Create a new twin from the new model
 
 ### Update the model
 

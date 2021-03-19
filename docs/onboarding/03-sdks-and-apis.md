@@ -16,10 +16,11 @@ Azure digital twins provides an SDK for multiple languages for programmatic mana
 
 Using the models created from [Learning Exercises in Chapter 2](02-digital-twin-definition-language.md), create a console app that is able to do the following operations.
 
-1. Creates a model if it does not yet exist
-1. Creates a twin using the model from #1
-1. Updates a property of the twin created in #2
-1. Reads a property from the twin created in #2 and writes the value to the console.
+1. Create a model if it does not yet exist
+2. Validate your model using the [DTDL Validator](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-parse-models) or the [.NET parser library](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-parse-models#use-the-net-parser-library)
+3. Create a twin using the model from #1
+4. Update a property of the twin created in #3
+5. Read a property from the twin created in #3 and writes the value to the console.
 
 The [Tutorial: Coding with the Azure Digital Twins APIs](https://docs.microsoft.com/en-us/azure/digital-twins/tutorial-code) can be used as a reference during the exercise.
 

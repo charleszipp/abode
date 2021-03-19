@@ -1,4 +1,4 @@
-# Chapter 6: Deploy and run end-to-end sample
+# Chapter 5: Deploy and run end-to-end sample
 
 The following docs will introduce an end-to-end solution where an Azure Digital Twins instance is connected to other Azure services for management of devices and data.
 

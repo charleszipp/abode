@@ -18,9 +18,9 @@ The following outlines resources that can be used for getting up to speed with A
 > **NOTE:** These documents all focus around features in C#, so bear that in mind if working on a Java project.
 
 1. [What is Azure Digital Twins?](01-adt-overview.md)
-1. [Digital Twin Definition Language](02-digital-twin-definition-language.md)
-1. [Digital Twin SDK & API](03-sdks-and-apis.md)
-1. [Noisy Neighbors & Multi-tenancy](04-noisy-neighbor-multi-tenancy.md)
-1. [Time Series Insights](05-time-series-insights.md)
-1. [Deploy and Run E2E Sample](06-e2e-sample.md)
-1. Query Performance
+2. [Digital Twin Definition Language](02-digital-twin-definition-language.md)
+3. [Digital Twin SDK & API](03-sdks-and-apis.md)
+4. [Noisy Neighbors & Multi-tenancy](04-noisy-neighbor-multi-tenancy.md)
+5. [Deploy and Run E2E Sample](05-e2e-sample.md)
+6. [Time Series Insights](06-time-series-insights.md)
+7. Query Performance
