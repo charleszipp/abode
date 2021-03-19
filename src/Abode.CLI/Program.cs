@@ -1,42 +1,65 @@
-﻿using Azure.DigitalTwins.Core;
-using Azure.Identity;
-using Microsoft.Extensions.Configuration;
-using Serilog;
+﻿using Azure;
+using Azure.DigitalTwins.Core;
 using System;
 using System.IO;
 using System.Threading.Tasks;
 
-namespace Abode.CLI
+namespace Abode
 {
     class Program
     {
         static async Task Main()
         {
-            Log.Logger = new LoggerConfiguration()
-                .MinimumLevel.Debug()
-                .WriteTo.Console()
-                .CreateLogger();
-            Uri adtInstanceUrl;
+            IDigitalTwinsClient client = new AzureDigitalTwinsClient();
+
+            // Upload the models to the service
+            Console.WriteLine();
+            Console.WriteLine($"Upload the Room model");
+            string roomDtdl = File.ReadAllText("models/Room.json");
+            Model roomModel = new(client);
+            await roomModel.UploadModel(roomDtdl);
+
+            Console.WriteLine($"Upload the Thermostat model");
+            string thermostatDtdl = File.ReadAllText("models/Thermostat.json");
+            Model thermostatModel = new(client);
+            await thermostatModel.UploadModel(thermostatDtdl);
+
+            // Read a list of models back from the service
+            AsyncPageable<DigitalTwinsModelData> modelDataList = client.GetModelsAsync();
+            await foreach (DigitalTwinsModelData md in modelDataList)
+            {
+                Console.WriteLine($"Model: {md.Id}");
+            }
+            
+            // Create twins
+            var roomTwinData = new BasicDigitalTwin();
+            roomTwinData.Metadata.ModelId = "dtmi:abode:Room;1";
+            roomTwinData.Contents.Add("data", "kitchen");
+
+            var thermostatTwinData = new BasicDigitalTwin();
+            thermostatTwinData.Metadata.ModelId = "dtmi:abode:Thermostat;1";
+            thermostatTwinData.Contents.Add("Temperature", 69.01);
+
             try
             {
-                // Read configuration data from the 
-                IConfiguration config = new ConfigurationBuilder()
-                    .AddJsonFile("appsettings.json", optional: false, reloadOnChange: false)
-                    .Build();
-                adtInstanceUrl = new Uri(config["instanceUrl"]);
+                roomTwinData.Id = "roomTwin-0";
+                await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(roomTwinData.Id, roomTwinData);
+                Log.Ok($"Created Room twin: {roomTwinData.Id}");
+
+                thermostatTwinData.Id = "thermostatTwin-0";
+                await client.CreateOrReplaceDigitalTwinAsync<BasicDigitalTwin>(thermostatTwinData.Id, thermostatTwinData);
+                Log.Ok($"Created Thermostat twin: {thermostatTwinData.Id}");
+
+                // Connect the twins with a relationship
+                await client.CreateRelationshipAsync("roomTwin-0", "thermostatTwin-0");
             }
-            catch (Exception ex) when (ex is FileNotFoundException || ex is UriFormatException)
+            catch (RequestFailedException e)
             {
-                Log.Error($"Could not read configuration. Have you configured your ADT instance URL in appsettings.json?\n\nException message: {ex.Message}");
-                return;
+                Log.Error($"Create twin error: {e.Status}: {e.Message}");
             }
 
-            Log.Information("Authenticating...");
-
-            var creds = new DefaultAzureCredential();
-            var client = new DigitalTwinsClient(adtInstanceUrl, creds);
-
-            Log.Information("Service client created - ready!");
+            // List the relationships
+            await client.ListRelationshipsAsync("roomTwin-0");
         }
     }
 }
