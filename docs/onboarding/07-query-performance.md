@@ -61,7 +61,7 @@ The Azure Digital Twins graphs that are constructed by digital twins and relatio
 - Use the `IN` operator and a local collection to run a few more specific queries. Using the suggestions above, you could query all the buildings in a region with more than three floors, or all the employees who work in California.
 - Practice using the `TOP` clause, and return only the top five buildings with the most employees (or other)
 - Practice using the `SELECT` statement with a projection, to only return the employee IDs of the employees who work in California (or other).
-- Practice using a Function in your query, to check the model type of a twin.
+- Practice using a [Function](https://docs.microsoft.com/en-us/azure/digital-twins/concepts-query-language#functions) in your query, to check the model type of a twin.
 - Verify that the results you got from the above exercises match expected results.
 
 ## Experiments
@@ -70,4 +70,4 @@ The Azure Digital Twins graphs that are constructed by digital twins and relatio
 
 ## Things to Consider
 
-- What are some of the Azure Digital Twins limits that we should take into consideration?
+- What are some of the Azure Digital Twins service limits that we should take into consideration?
