@@ -23,4 +23,4 @@ The following outlines resources that can be used for getting up to speed with A
 4. [Noisy Neighbors & Multi-tenancy](04-noisy-neighbor-multi-tenancy.md)
 5. [Deploy and Run E2E Sample](05-e2e-sample.md)
 6. [Time Series Insights](06-time-series-insights.md)
-7. Query Performance
+7. [Query Performance](07-query-performance.md)
