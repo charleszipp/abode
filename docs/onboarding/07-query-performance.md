@@ -56,17 +56,19 @@ The Azure Digital Twins graphs that are constructed by digital twins and relatio
 
 ## Learning Exercises
 
-- Using the resources you have created so far, or the console app that you built in [Learning Exercises in Chapter 3](03-sdks-and-apis.md), practice writing a simple query and ensure it returns expected results.
-- Write a relationship-based query, using a `FROM` statement followed by a `JOIN` statement with the keyword `RELATED`. Suggestions: find all the buildings in a region, find all the employees in a building, etc.
-- Use the `IN` operator and a local collection to run a few more specific queries. Using the suggestions above, you could query all the buildings in a region with more than three floors, or all the employees who work in California.
-- Practice using the `TOP` clause, and return only the top five buildings with the most employees (or other)
-- Practice using the `SELECT` statement with a projection, to only return the employee IDs of the employees who work in California (or other).
+- Using the resources you have created so far, or the console app that you built in [Learning Exercises in Chapter 3](03-sdks-and-apis.md), practice writing a simple query and ensure it returns expected results. You can use the models, twins and relationships you have created in the previous exercises. Alternatively, you can import the model and graph [examples](https://github.com/Azure-Samples/digital-twins-explorer/tree/master/client/examples) that are available in the ADT Explorer sample you installed in [Chapter 1](01-adt-overview.md).
+- Write a relationship-based query, using a `FROM` statement followed by a `JOIN` statement with the keyword `RELATED`. Examples: find all the buildings in a region, find all the employees in a building, etc.
+- Use the `IN` operator and a local collection to run a few more specific queries. Using one of the above examples, you could query all the buildings in a region with more than three floors, or all the employees who work in California.
+- Practice using the `TOP` clause. Example: return only the top five buildings with the most employees (or other)
+- Practice using the `SELECT` statement with a [projection](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-query-graph#filter-results-specify-return-set-with-projections) to return a property of a twin. Example: return only the employee IDs of the employees who work in California (or other).
+  > Tip: Ensure the projection property is valid by using the `IS_PRIMITIVE` function.
 - Practice using a [Function](https://docs.microsoft.com/en-us/azure/digital-twins/concepts-query-language#functions) in your query, to check the model type of a twin.
 - Verify that the results you got from the above exercises match expected results.
 
 ## Experiments
 
 - Find the Query Unit (QU) consumption for your queries.
+- Adjust the complexity of a query to see the change in the QU consumption.
 
 ## Things to Consider
 
