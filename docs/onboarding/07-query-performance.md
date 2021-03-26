@@ -72,4 +72,4 @@ The Azure Digital Twins graphs that are constructed by digital twins and relatio
 
 ## Things to Consider
 
-- What are some of the Azure Digital Twins service limits that we should take into consideration?
+- What are some of the Azure Digital Twins [service limits](https://docs.microsoft.com/en-us/azure/digital-twins/reference-service-limits) that we should take into consideration?
