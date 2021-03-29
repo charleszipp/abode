@@ -1,4 +1,4 @@
-# Chapter 4: Noisy Neighbors & Multi-tenancy
+# Chapter 8: Noisy Neighbors & Multi-tenancy
 
 - [Isolation in Azure](https://docs.microsoft.com/en-us/azure/security/fundamentals/isolation-choices) - ~15 min, focus on reading Tenant Isolation, Azure Tenancy, Azure role-based access control (Azure RBAC), and Storage Isolation
 - [Custom roles in RBAC](https://docs.microsoft.com/en-us/azure/role-based-access-control/custom-roles) - ~20 min including following steps

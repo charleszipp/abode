@@ -20,7 +20,8 @@ The following outlines resources that can be used for getting up to speed with A
 1. [What is Azure Digital Twins?](01-adt-overview.md)
 2. [Digital Twin Definition Language](02-digital-twin-definition-language.md)
 3. [Digital Twin SDK & API](03-sdks-and-apis.md)
-4. [Noisy Neighbors & Multi-tenancy](04-noisy-neighbor-multi-tenancy.md)
+4. [Query Performance](04-query-performance.md)
 5. [Deploy and Run E2E Sample](05-e2e-sample.md)
 6. [Time Series Insights](06-time-series-insights.md)
-7. [Query Performance](07-query-performance.md)
+7. Logging
+8. [Noisy Neighbors & Multi-tenancy](08-noisy-neighbor-multi-tenancy.md)
