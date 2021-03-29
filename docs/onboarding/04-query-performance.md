@@ -1,4 +1,4 @@
-# Chapter 7: Query Performance
+# Chapter 4: Query Performance
 
 The Azure Digital Twins graphs that are constructed by digital twins and relationships can be queried using a custom SQL-like query language, referred to as the Azure Digital Twins query language. You can use this query language to retrieve digital twins according to their properties, models, relationships (or properties of relationships).
 
