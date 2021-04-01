@@ -28,9 +28,9 @@ Using the Azure Digital Twins instance created from [Learning Exercises in Chapt
 
 ## Experiments
 
-- Create a query that reports the costs of each operation
+- Create a query that reports the billing costs of each operation
 - Create a query that checks for a property value anomaly or threshold for a twin entity
-- Route logs and/or logged ADT Metrics to TSI and run a time-series analysis query (_Note:_ Use the TSI instance created from the [previous chapter](06-time-series-insights).)
+- Route logs and/or logged ADT Metrics to TSI and run a time-series analysis query (_Note:_ Use the TSI instance, Event Hub and Azure Function created from the [previous chapter](06-time-series-insights.md).)
 
 ## Things to Consider
 
