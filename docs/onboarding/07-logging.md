@@ -1,6 +1,6 @@
 # Chapter 7: Logging
 
-Within Azure, logging and alerting are the two primary activities used for performance monitoring and troubleshooting a managed service. This chapter focuses on logging and logging tracked Metrics.
+Within Azure, logging and alerting are the two primary activities used for performance monitoring and troubleshooting a managed service. This chapter focuses on logging and logging tracked Metrics for Azure Digital Twins
 
 - [Azure Monitoring Intro](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/data-platform-logs) - ~6 min.
 - [Log Analytics Intro](https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-overview) - ~6 min.
@@ -21,7 +21,7 @@ Within Azure, logging and alerting are the two primary activities used for perfo
 
 Using the Azure Digital Twins instance created from [Learning Exercises in Chapter 5](05-e2e-sample.md), visit the Azure cloud portal to complete the following:
 
-1. Create a Log Analytics Workspace and enable diagnostics
+1. Create a Log Analytics Workspace and enable diagnostics in your ADT resource
 1. Create or find a Log Analytics query that reports the read and write counts for the history of twins within your ADT instance
 1. Update the query to render different visualizations (e.g., barchart, piechart, etc.)
 1. Find and run a Log Analytics query that returns a reported twin count from your ADT instance (_Hint:_ Metrics live in a table called `AzureMetrics`.)
@@ -35,6 +35,6 @@ Using the Azure Digital Twins instance created from [Learning Exercises in Chapt
 ## Things to Consider
 
 - What would you expect to show up in the logs and metrics of a healthy ADT instance and the digital twins contained within?
-- Which logged information would make the most sense for an Azure Portal Dashboard or Azure Workbook?
+- Which logged information would make the most sense for an Azure Workbook?
 - What various scenarios might require a need for Log Analytics to capture ADT Metrics?
 - Api calls made to operate on digital twin entities trigger [event notifications](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-interpret-event-data) that can be routed to external services for later analytics (e.g. TSI). However, enabling diagnostics will achieve the same thing by logging information about api calls to Azure Log Analytics. What's the difference between the data reported in api call event notifications and the data reported when logging api calls for log analytics?
