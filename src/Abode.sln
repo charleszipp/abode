@@ -9,6 +9,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abode.Domain", "Abode.Domai
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Abode.Tests", "Abode.Tests\Abode.Tests.csproj", "{B3E2C0D9-7D22-48E4-BDEE-FAB7AAD7C344}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DTDLValidator", "DTDLValidator\DTDLValidator.csproj", "{94F472D1-7950-458D-A96C-BD048D0FF752}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{B3E2C0D9-7D22-48E4-BDEE-FAB7AAD7C344}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B3E2C0D9-7D22-48E4-BDEE-FAB7AAD7C344}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B3E2C0D9-7D22-48E4-BDEE-FAB7AAD7C344}.Release|Any CPU.Build.0 = Release|Any CPU
+		{94F472D1-7950-458D-A96C-BD048D0FF752}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{94F472D1-7950-458D-A96C-BD048D0FF752}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{94F472D1-7950-458D-A96C-BD048D0FF752}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{94F472D1-7950-458D-A96C-BD048D0FF752}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
