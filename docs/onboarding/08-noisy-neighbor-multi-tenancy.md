@@ -52,7 +52,7 @@ Many of the service limits exist per-Twin. Likely, if using the pooled approach,
 ## Key Points
 
 - The 'Noisy Neighbor' problem refers to when resources are shared, and one user takes up more of the resources than allocated. As a result, one or more other users are impacted.
-- When designing a multi-tenant architecture, the silo model can: lead to over-provisioned resources, make it difficult to scale, and spike cost. However, it has the advantage of physical isolation, which can increase tenant confidence that their data is safe as well as eliminated the noisy neighbor problem.
+- When designing a multi-tenant architecture, the silo model can: lead to over-provisioned resources, make it difficult to scale, and spike cost. However, it has the advantage of physical isolation, which can increase tenant confidence that their data is safe as well as eliminate the noisy neighbor problem.
 - The pool model allows for cost-efficient elastic scaling, and by implementing logical separations of resources rather than physical, you can then still enforce RBAC as needed. However, it has the drawback of being more complex to design, as those logical separations require a careful and accurate approach, and you also have to find workarounds for the classic 'Noisy Neighbor' problem.
 - Model standardization is a great way to simplify the pooled approach when working with ADT. Otherwise, you will have to brainstorm solutions to avoid model entropy.
 
@@ -79,4 +79,4 @@ Follow [this tutorial](https://docs.microsoft.com/en-us/azure/storage/common/sto
 
 - In what cases would you use the silo model or the pool model when working with ADT? What are some things that need to be true for one or the other to work?
 - If using a pool model and tenants are allowed to each have their own model definitions, how would you associate certain models with certain tenants?
-- What are some examples of logical partitions that would allow you to use the silo model without compromising data that should be isolated?
+- What are some examples of logical partitions that would allow you to use the pool model without compromising data that should be isolated?
