@@ -40,14 +40,53 @@ The following exercises involve creating and modifying models using DTDL. The mo
 1. Create a new second model.
 2. Update the models such that the first and second model are related
 3. Upload the models that were updated to establish the relationship.
+> Tip: The keyword `target` enables you to target a specific class for that relationship "name". For instance, for model RoundHole, if you set the following:
+> ```json
+> {
+>   "@id": "dtmi:RoundHole;1",
+>   "@type": "Interface",
+>   "displayName": "RoundHole",
+>   "contents": [
+>     {
+>       "@type": "Relationship",
+>       "name": "contains",
+>       "target": "dtmi:RoundPeg;1"
+>     }
+>      ...
+>    ]
+> }
+> ```
+> then you could not set RoundHole to contain an object of type SquarePeg. If RoundHole should be able to contain SmallSquarePeg, then you could represent this as follows (pay attention to the "name" field):
+> ```json
+> {
+>   "@id": "dtmi:RoundHole;1",
+>   "@type": "Interface",
+>   "displayName": "RoundHole",
+>   "contents": [
+>     {
+>       "@type": "Relationship",
+>       "name": "contains_roundpeg",
+>       "target": "dtmi:RoundPeg;1"
+>     },
+>     {
+>       "@type": "Relationship",
+>       "name": "contains_smallsquarepeg",
+>       "target": "dtmi:SmallSquarePeg;1"
+>     }
+>      ...
+>    ]
+> }
+> ```
 
 ## Experiments
 
 - What happens if you try to create the same model twice without changing the version?
 - Can multiple models be uploaded or only one at a time?
+- Try following the tip in 'Create a Relationship' to give your model a relationship that targets a specific class. Are you able to create a relationship of that "name" with an object that is not that "target" class?
 
 ## Things to Consider
 
 - How often should a new version of the model be uploaded? Should each deployment create new versions?
 - What is the appropriate use of Property vs Telemetry?
 - When are relationships necessary? What capability do they introduce from a query standpoint?
+- Given how you can create relationships that target specific classes, why do names matter so much when you create a new version of a model?
