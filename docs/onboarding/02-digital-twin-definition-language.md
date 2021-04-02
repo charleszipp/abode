@@ -3,6 +3,7 @@
 DTDL is the schema by which models are described. Its important to understand how models are described and what constructs are supported. DTDL is to Azure Digital Twins what DDL (Data Definition Language) is to SQL.
 
 - [Concepts](https://docs.microsoft.com/en-us/azure/digital-twins/concepts-models) - ~11 min. Covers basic concepts of DTDL language
+- [Marker tags](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-use-tags) ~10 min. Covers how to define tags, how to provision tag markers to your twins and how to query filtering by tags.
 - [Model Management](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-manage-model) - ~11 min. Covers how to deploy models to ADT including creating, updates, and removal.
 
 > Model management is especially important for understanding what a CI/CD pipeline for ADT models might need to include.
@@ -16,6 +17,7 @@ DTDL is the schema by which models are described. Its important to understand ho
 - Models are immutable. Once uploaded, they cannot be modified. Changes are made by creating a **new version**.
 - Models are versioned. The id contains the version number after the semi-colon
 - Models can be grouped/namespaced. The id can contain path segments (delimited by colon) to group models.
+- Marker tags are simply properties using a key/value Map as a schema, but they provide a more flexible way to add information to the twins at creation time (you have to define a tag in the model, but the actual values are provided when creating each twin). And you can perform queries filtering by these tags. 
 - Ontologies are peer-reviewed standardized models for common entities such as buildings, factories, and other physical spaces.
 
 ## Learning Exercises
@@ -51,3 +53,4 @@ The following exercises involve creating and modifying models using DTDL. The mo
 - How often should a new version of the model be uploaded? Should each deployment create new versions?
 - What is the appropriate use of Property vs Telemetry?
 - When are relationships necessary? What capability do they introduce from a query standpoint?
+- Inherit properties (for reusing common attributes) could be avoided by using marker tags. 
