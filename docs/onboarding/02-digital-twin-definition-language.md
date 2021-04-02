@@ -37,6 +37,13 @@ The following exercises involve creating and modifying models using DTDL. The mo
 2. Upload the updated model as a new version.
 3. Create a new twin using the updated model.
 
+### Add a marker tag
+1. Modify your first model to include a marker tag.
+2. Upload the updated model as a new version. 
+3. Create new twin using the updated model.
+4. Update the tag value of the twin.
+5. Perform a query to get results filtering by your tag.
+
 ### Create a Relationship
 
 1. Create a new second model.
@@ -53,4 +60,4 @@ The following exercises involve creating and modifying models using DTDL. The mo
 - How often should a new version of the model be uploaded? Should each deployment create new versions?
 - What is the appropriate use of Property vs Telemetry?
 - When are relationships necessary? What capability do they introduce from a query standpoint?
-- Inherit properties (for reusing common attributes) could be avoided by using marker tags. 
+- How can we leverage marker tags when there is a need to reuse common attributes?
