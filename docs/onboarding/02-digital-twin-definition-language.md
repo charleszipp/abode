@@ -52,7 +52,6 @@ The following exercises involve creating and modifying models using DTDL. The mo
 >       "name": "contains",
 >       "target": "dtmi:RoundPeg;1"
 >     }
->      ...
 >    ]
 > }
 > ```
@@ -73,7 +72,6 @@ The following exercises involve creating and modifying models using DTDL. The mo
 >       "name": "contains_smallsquarepeg",
 >       "target": "dtmi:SmallSquarePeg;1"
 >     }
->      ...
 >    ]
 > }
 > ```
