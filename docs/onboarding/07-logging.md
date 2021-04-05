@@ -12,10 +12,9 @@ Within Azure, logging and alerting are the two primary activities used for perfo
 
 - Per tenant, Azure Monitor is a shared service instance that uses Log Analytics to log the internal behavior of one or more managed services.
 - Enabling logging for a managed service (e.g., Azure Digital Twins) requires opting in to the shared Log Analytics instance via a Log Analytics Workspace.
-- Logging for an Azure Digital Twins (ADT) instance primarily means capturing data about the [ADT data plane](https://docs.microsoft.com/en-us/rest/api/digital-twins/dataplane/twins) and sending that data to a Log Analytics Workspace to be queried for diagnostics and troubleshooting.
+- Logging for an Azure Digital Twins (ADT) instance primarily means capturing data about the [ADT data plane](https://docs.microsoft.com/en-us/rest/api/digital-twins/dataplane/twins) and sending that data to a Log Analytics Workspace to be queried for diagnostics and troubleshooting. It's also possible to log tracked Metrics that come with the ADT platform. Metrics can be routed to and queried from the Log Analytics workspace.
 - When visiting logs from within your ADT instance of the Azure portal, example Kusto queries related to the service are presented and ready for use. Furthermore, custom [Kusto queries](https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/) are also possible.
 - Logs can also be concurrently sent to an Azure Event Hub and then routed to an alternative analytical service like [Time Series Insights](https://docs.microsoft.com/en-us/azure/time-series-insights/overview-what-is-tsi) (TSI). As a result, you don't have to solely rely on Kusto queries to analyze your data.
-- It's also possible to log tracked Metrics that come with the ADT platform. Metrics can be routed to and queried from the Log Analytics workspace, however, because many Metrics concerns themselves with data that's tracked over time, they are also great candidates for being routed to a time-series database like TSI's.
 
 ## Learning Exercises
 
@@ -28,7 +27,7 @@ Using the Azure Digital Twins instance created from [Learning Exercises in Chapt
 
 ## Experiments
 
-- Create a query that reports the billing costs of each operation
+- Create a query that reports the [billing costs](https://azure.microsoft.com/en-us/pricing/details/digital-twins/) from the [usage](https://docs.microsoft.com/en-us/azure/azure-monitor/reference/tables/Usage) of each digital twins operation
 - Create a query that checks for a property value anomaly or threshold for a twin entity
 - Route logs and/or logged ADT Metrics to TSI and run a time-series analysis query (_Note:_ Use the TSI instance, Event Hub and Azure Function created from the [previous chapter](06-time-series-insights.md).)
 
@@ -37,4 +36,4 @@ Using the Azure Digital Twins instance created from [Learning Exercises in Chapt
 - What would you expect to show up in the logs and metrics of a healthy ADT instance and the digital twins contained within?
 - Which logged information would make the most sense for an Azure Workbook?
 - What various scenarios might require a need for Log Analytics to capture ADT Metrics?
-- Api calls made to operate on digital twin entities trigger [event notifications](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-interpret-event-data) that can be routed to external services for later analytics (e.g. TSI). However, enabling diagnostics will achieve the same thing by logging information about api calls to Azure Log Analytics. What's the difference between the data reported in api call event notifications and the data reported when logging api calls for log analytics?
+- Api calls made to operate on digital twin entities trigger [event notifications](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-interpret-event-data) that can be routed to external services for later analytics (e.g. TSI). However, enabling diagnostics will also log information about api calls to Azure Log Analytics. What's the difference between the data reported in api call event notifications and the data reported when logging api calls for log analytics?
