@@ -17,7 +17,7 @@ DTDL is the schema by which models are described. Its important to understand ho
 - Models are immutable. Once uploaded, they cannot be modified. Changes are made by creating a **new version**.
 - Models are versioned. The id contains the version number after the semi-colon
 - Models can be grouped/namespaced. The id can contain path segments (delimited by colon) to group models.
-- Marker tags are simply properties using a key/value Map as a schema, but they provide a more flexible way to add information to the twins at creation time (you have to define a tag in the model, but the actual values are provided when creating each twin). And you can perform queries filtering by these tags. 
+- Marker tags are simply properties using a key/value Map as a schema, but they provide a more flexible way to add information at runtime when a twin is created. To accomplish this, a tag property of type map is defined in the model. Then, each twin can define any key/value pair within the tag property. And you can perform queries filtering by these tags. 
 - Ontologies are peer-reviewed standardized models for common entities such as buildings, factories, and other physical spaces.
 
 ## Learning Exercises
