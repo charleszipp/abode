@@ -4,7 +4,7 @@ DTDL is the schema by which models are described. Its important to understand ho
 
 - [Concepts](https://docs.microsoft.com/en-us/azure/digital-twins/concepts-models) - ~11 min. Covers basic concepts of DTDL language
 - [Marker tags](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-use-tags) ~10 min. Covers how to define tags, how to provision tag markers to your twins and how to query filtering by tags.
-- [Model Management](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-manage-model) - ~11 min. Covers how to deploy models to ADT including creating, updates, and removal.
+
 
 > Model management is especially important for understanding what a CI/CD pipeline for ADT models might need to include.
 
@@ -22,7 +22,9 @@ DTDL is the schema by which models are described. Its important to understand ho
 
 ## Learning Exercises
 
-The following exercises involve creating and modifying models using DTDL. The models can be updated via the [Azure Digital Twins Explorer](https://docs.microsoft.com/en-us/azure/digital-twins/quickstart-adt-explorer) or [Azure Digital Twins CLI](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-use-cli).
+The following exercises involve creating and modifying models using DTDL.
+
+> Important! The models can be updated via the [Azure Digital Twins Explorer](https://docs.microsoft.com/en-us/azure/digital-twins/quickstart-adt-explorer) or [Azure Digital Twins CLI](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-use-cli). Its encouraged to complete the exercises using Azure Digital Twins Explorer as it will visualize the changes made in the exercise.
 
 ### Create a new model
 
@@ -38,8 +40,9 @@ The following exercises involve creating and modifying models using DTDL. The mo
 3. Create a new twin using the updated model.
 
 ### Add a marker tag
+
 1. Modify your first model to include a marker tag.
-2. Upload the updated model as a new version. 
+2. Upload the updated model as a new version.
 3. Create new twin using the updated model.
 4. Update the tag value of the twin.
 5. Perform a query to get results filtering by your tag.
@@ -49,6 +52,7 @@ The following exercises involve creating and modifying models using DTDL. The mo
 1. Create a new second model.
 2. Update the models such that the first and second model are related
 3. Upload the models that were updated to establish the relationship.
+
 > Tip: The keyword `target` enables you to target a specific class for that relationship "name". For instance, for model RoundHole, if you set the following:
 > ```json
 > {
