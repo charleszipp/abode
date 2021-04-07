@@ -4,10 +4,6 @@ DTDL is the schema by which models are described. Its important to understand ho
 
 - [Concepts](https://docs.microsoft.com/en-us/azure/digital-twins/concepts-models) - ~11 min. Covers basic concepts of DTDL language
 - [Marker tags](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-use-tags) ~10 min. Covers how to define tags, how to provision tag markers to your twins and how to query filtering by tags.
-
-
-> Model management is especially important for understanding what a CI/CD pipeline for ADT models might need to include.
-
 - [Ontologies](https://docs.microsoft.com/en-us/azure/digital-twins/concepts-ontologies) - ~3 min. Covers definition and use cases for ontologies: domain-specific sets of models.
 - [Brick](https://docs.brickschema.org/intro.html) - Alternative to DTDL and some other aspects of Azure Digital Twins.
 
