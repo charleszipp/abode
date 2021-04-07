@@ -4,6 +4,9 @@ Azure digital twins provides an SDK for multiple languages for programmatic mana
 
 - [Use the APIs and SDKs](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-use-apis-sdks)
 - [Create Graph with the APIs](https://docs.microsoft.com/en-us/azure/digital-twins/concepts-twins-graph#create-with-the-apis)
+- [Model Management](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-manage-model) - ~11 min. Covers how to deploy models to ADT including creating, updates, and removal.
+
+> Model management is especially important for understanding what a CI/CD pipeline for ADT models might need to include.
 
 ## Key Points
 
