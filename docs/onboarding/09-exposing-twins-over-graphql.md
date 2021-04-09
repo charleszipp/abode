@@ -10,6 +10,7 @@
 - Resolvers leverage one or more data sources to fulfill a requested operation
 - Schema defines both the model/state (e.g. Room, Floor) exposed as well as the supported operations (GetRoomsByFloor)
 - Clients must leverage an SDK that translates GraphQL operation into a protocol specific implementation (i.e. HTTP) as opposed to directly invoking an HTTP endpoint.
+- GraphQL is a standard specification while Apollo Server is one implementation of the GraphQL standard.
 
 > Since Azure Digital Twins also follows a declarative model for defining twins and relationships and, twins are likely to co-exist with other non-twin application data; GraphQL is a natural fit for exposing the aggregate of this information over a common protocol.
 
