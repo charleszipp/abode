@@ -2,6 +2,7 @@
 
 - [Overview](https://docs.microsoft.com/en-us/azure/time-series-insights/overview-what-is-tsi) - ~5 min not including video intro, covers basics of IoT data and TSI
 - [Getting Started Tutorial](https://docs.microsoft.com/en-us/azure/time-series-insights/tutorial-set-up-environment) - ~20 min including following steps
+> Tip: Running through this tutorial is optional, but can be helpful for understanding how to work with TSI in isolation (this tutorial is not related to ADT). 
 - [Storage in TSI](https://docs.microsoft.com/en-us/azure/time-series-insights/concepts-storage ) - ~6 min to read
 - [Integrating ADT with TSI](https://docs.microsoft.com/en-us/azure/digital-twins/how-to-integrate-time-series-insights) - ~30 min including following steps, assuming prerequisite of ADT instance has been met
 
