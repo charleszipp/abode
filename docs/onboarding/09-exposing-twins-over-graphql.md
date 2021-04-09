@@ -17,7 +17,7 @@
 
 ### Prerequisites
 
-Javascript/Node will need to be To complete the exercises using Apollo GraphQL framework. VS Code is suggested IDE for completing these challenges.
+Javascript/Node will need to be installed/used to complete the exercises using Apollo GraphQL framework. VS Code is suggested IDE for completing these challenges.
 
 1. [NodeJS 14.16.1](https://nodejs.org/dist/v14.16.1/node-v14.16.1-x64.msi)
 2. [Azure Digital Twins Data Plane Javascript SDK](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
