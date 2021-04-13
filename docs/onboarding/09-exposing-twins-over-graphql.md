@@ -1,8 +1,8 @@
 # Chapter 9: Exposing Digital Twins over GraphQL
 
+- [GraphQL in 100 Seconds](https://www.youtube.com/watch?v=eIQh02xuVw4) - Explains value prop and core concepts in concise video
 - [Why GraphQL?](https://www.apollographql.com/docs/intro/benefits/) - Explains the value proposition of GraphQL
 - [GraphQL Tutorial](https://www.apollographql.com/docs/tutorial/introduction/) - Walks through coding a GraphQL service. **STOP after [Chapter 4 (Write Mutation Resolvers)](https://www.apollographql.com/docs/tutorial/mutation-resolvers/)**. Apollo Explorer is not necessary to complete the tutorial. Browsing to localhost address provides means to execute requests.
-- [GraphQL in 100 Seconds](https://www.youtube.com/watch?v=eIQh02xuVw4)
 
 ## Key Points
 
@@ -50,7 +50,7 @@ console.log('Floors: ', floors);
 //    .then((floors) => console.log('Floors: ', floors));
 ```
 
-3. Modify the code from the previous step to retrieve the twins from a [Resolver](https://www.apollographql.com/docs/apollo-server/data/resolvers/) rather than the data source. The Resolver should utilize the DataSource class from the previous step.
+4. Modify the code from the previous step to retrieve the twins from a [Resolver](https://www.apollographql.com/docs/apollo-server/data/resolvers/) rather than the data source. The Resolver should utilize the DataSource class from the previous step.
    1. This [tutorial](https://www.apollographql.com/docs/tutorial/resolvers/) and [these docs](https://www.apollographql.com/docs/apollo-server/data/resolvers/) can be used to recap on Resolvers.
 
 ```javascript
@@ -59,7 +59,7 @@ import { MyResolver } from './my-resolver'
 const floors = MyResolver.Query.floors();
 ```
 
-4. Using the Schema, Data Source, and Resolver from the previous steps, setup a [GraphQL Server](https://www.apollographql.com/docs/tutorial/resolvers/#add-resolvers-to-apollo-server). At this point it should be possible to execute a GraphQL query from http://localhost:4000/ that retrieves the twins.
+5. Using the Schema, Data Source, and Resolver from the previous steps, setup a [GraphQL Server](https://www.apollographql.com/docs/tutorial/resolvers/#add-resolvers-to-apollo-server). At this point it should be possible to execute a GraphQL query from http://localhost:4000/ that retrieves the twins.
 
 ## Experiments
 
