@@ -25,3 +25,4 @@ The following outlines resources that can be used for getting up to speed with A
 6. [Time Series Insights](06-time-series-insights.md)
 7. [Logging](07-logging.md)
 8. [Noisy Neighbors & Multi-tenancy](08-noisy-neighbor-multi-tenancy.md)
+9. [Exposing ADT over GraphQL](09-exposing-twins-over-graphql.md)
