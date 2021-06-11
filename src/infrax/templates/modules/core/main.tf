@@ -62,3 +62,17 @@ resource "azurerm_key_vault" "kv_core" {
     ]
   }
 }
+
+resource "azurerm_eventhub_namespace" "evh_core" {
+  name                = "evh${local.suffix}"
+  location            = azurerm_resource_group.rg_core.location
+  resource_group_name = azurerm_resource_group.rg_core.name
+  sku                 = "Basic"
+  capacity            = 1
+}
+
+resource "azurerm_key_vault_secret" "kv_core_evhn_core_connection_string" {
+  name         = "evh-core-connection-string"
+  value        = azurerm_eventhub_namespace.evh_core.default_primary_connection_string
+  key_vault_id = azurerm_key_vault.kv_core.id
+}

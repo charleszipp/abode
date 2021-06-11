@@ -14,23 +14,15 @@ variable "app" {
   type        = string
   description = "The short name of the app"
 }
-variable "kv_id" {
-  type        = string
-  description = "The key vault id"
-}
-variable "wksp_id" {
-  type        = string
-  description = "The log analytics workspace id"
-}
 variable "ai_instrumentation_key" {
   type        = string
   description = "The application insights instrumentation key"
 }
-variable "evh_namespace" {
+variable "dt_twins_host_name" {
   type        = string
-  description = "The event hub namespace name"
+  description = "The digital twins instance host name"
 }
-variable "rg_core_name" {
+variable "dt_twins_id" {
   type        = string
-  description = "The core resource group name"
+  description = "The digital twins instance resource id"
 }

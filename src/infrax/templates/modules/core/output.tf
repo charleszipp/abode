@@ -13,3 +13,6 @@ output "wksp_id" {
 output "ai_instrumentation_key" {
   value = azurerm_application_insights.ai_core.instrumentation_key
 }
+output "evh_namespace"{
+  value = azurerm_eventhub_namespace.evh_core.name 
+}

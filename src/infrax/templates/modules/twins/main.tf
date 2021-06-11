@@ -2,30 +2,13 @@ locals {
   suffix   = "-twins-${var.env}-${var.location_suffix}-${var.app}"
   suffix_2 = "twins${var.env}${var.location_suffix}${var.app}"
 }
+
+data "azurerm_client_config" "current" {
+}
+
 resource "azurerm_resource_group" "rg_twins" {
   name     = "rg${local.suffix}"
   location = var.location
-}
-
-## STORAGE
-resource "azurerm_storage_account" "st_twins" {
-  name                     = "st${local.suffix_2}"
-  resource_group_name      = azurerm_resource_group.rg_twins.name
-  location                 = azurerm_resource_group.rg_twins.location
-  account_tier             = "Standard"
-  account_replication_type = "LRS"
-}
-
-## IOT HUB
-resource "azurerm_iothub" "iot_twins" {
-  name                = "iot${local.suffix}"
-  resource_group_name = azurerm_resource_group.rg_twins.name
-  location            = azurerm_resource_group.rg_twins.location
-
-  sku {
-    name     = "S1"
-    capacity = "1"
-  }
 }
 
 ## DIGITAL TWINS
@@ -51,46 +34,40 @@ resource "azurerm_monitor_diagnostic_setting" "log_twins" {
   metric { category = "AllMetrics" }
 }
 
-## TELEMETRY HANDLER FUNCTION
-resource "azurerm_user_assigned_identity" "id_twins" {
-  name = "id${local.suffix}"
-  resource_group_name = azurerm_resource_group.rg_twins.name
-  location            = azurerm_resource_group.rg_twins.location
-}
-resource "azurerm_app_service_plan" "asp_twins" {
-  name                = "asp${local.suffix}"
-  location            = azurerm_resource_group.rg_twins.location
-  resource_group_name = azurerm_resource_group.rg_twins.name
-  kind                = "FunctionApp"
-
-  sku {
-    tier = "Dynamic"
-    size = "Y1"
-  }
-}
-resource "azurerm_function_app" "fn_twins" {
-  name                       = "fn${local.suffix}"
-  location                   = azurerm_resource_group.rg_twins.location
-  resource_group_name        = azurerm_resource_group.rg_twins.name
-  app_service_plan_id        = azurerm_app_service_plan.asp_twins.id
-  storage_account_name       = azurerm_storage_account.st_twins.name
-  storage_account_access_key = azurerm_storage_account.st_twins.primary_access_key
-  os_type                    = "linux"
-
-  app_settings = {
-    "APPINSIGHTS_INSTRUMENTATIONKEY" = var.ai_instrumentation_key,
-    "DT_INSTANCE_URL"               = "https://${azurerm_digital_twins_instance.dt_twins.host_name}"
-  }
-
-  identity {
-    type = "UserAssigned"
-    identity_ids = [ azurerm_user_assigned_identity.id_twins.id ]
-  }
-}
-
-### Assign function managed identity to 
-resource "azurerm_role_assignment" "example" {
+### Grant current identity access to twin instance
+resource "azurerm_role_assignment" "id_current_dt_twins_data_owner" {
   scope                = azurerm_digital_twins_instance.dt_twins.id
   role_definition_name = "Azure Digital Twins Data Owner"
-  principal_id         = azurerm_user_assigned_identity.id_twins.principal_id
+  principal_id         = data.azurerm_client_config.current.object_id
+}
+
+# EVENT ROUTE
+resource "azurerm_eventhub" "evh_twins" {
+  name                = "evh${local.suffix}"
+  namespace_name      = var.evh_namespace
+  resource_group_name = var.rg_core_name
+  partition_count     = 2
+  message_retention   = 1
+}
+
+resource "azurerm_eventhub_authorization_rule" "evh_twins_ar_send" {
+  name                = "evh-twins-ar-send"
+  namespace_name      = var.evh_namespace
+  eventhub_name       = azurerm_eventhub.evh_twins.name
+  resource_group_name = var.rg_core_name
+
+  listen = false
+  send   = true
+  manage = false
+}
+
+resource "azurerm_digital_twins_endpoint_eventhub" "ep_twins_evh_core" {
+  name                                 = "ep-twins-evh-core"
+  digital_twins_id                     = azurerm_digital_twins_instance.dt_twins.id
+  eventhub_primary_connection_string   = azurerm_eventhub_authorization_rule.evh_twins_ar_send.primary_connection_string
+  eventhub_secondary_connection_string = azurerm_eventhub_authorization_rule.evh_twins_ar_send.secondary_connection_string
+  
+  provisioner "local-exec" {
+    command = "az dt route create -n ${azurerm_digital_twins_instance.dt_twins.name} --en ${azurerm_digital_twins_endpoint_eventhub.ep_twins_evh_core.name} --rn ert-twins --filter \"type = 'Microsoft.DigitalTwins.Twin.Create' OR type = 'Microsoft.DigitalTwins.Twin.Update' OR type = 'Microsoft.DigitalTwins.Twin.Delete' OR type = 'Microsoft.DigitalTwins.Relationship.Create' OR type = 'Microsoft.DigitalTwins.Relationship.Update' OR type = 'Microsoft.DigitalTwins.Relationship.Delete' OR type = 'microsoft.iot.telemetry'\""
+  }
 }
