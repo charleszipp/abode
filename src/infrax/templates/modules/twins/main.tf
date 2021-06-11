@@ -66,8 +66,8 @@ resource "azurerm_digital_twins_endpoint_eventhub" "ep_twins_evh_core" {
   digital_twins_id                     = azurerm_digital_twins_instance.dt_twins.id
   eventhub_primary_connection_string   = azurerm_eventhub_authorization_rule.evh_twins_ar_send.primary_connection_string
   eventhub_secondary_connection_string = azurerm_eventhub_authorization_rule.evh_twins_ar_send.secondary_connection_string
-  
+
   provisioner "local-exec" {
-    command = "az dt route create -n ${azurerm_digital_twins_instance.dt_twins.name} --en ${azurerm_digital_twins_endpoint_eventhub.ep_twins_evh_core.name} --rn ert-twins --filter \"type = 'Microsoft.DigitalTwins.Twin.Create' OR type = 'Microsoft.DigitalTwins.Twin.Update' OR type = 'Microsoft.DigitalTwins.Twin.Delete' OR type = 'Microsoft.DigitalTwins.Relationship.Create' OR type = 'Microsoft.DigitalTwins.Relationship.Update' OR type = 'Microsoft.DigitalTwins.Relationship.Delete' OR type = 'microsoft.iot.telemetry'\""
+    command = "az dt route create -n ${azurerm_digital_twins_instance.dt_twins.name} --en ${azurerm_digital_twins_endpoint_eventhub.ep_twins_evh_core.name} --rn ert-twins"
   }
 }
