@@ -43,7 +43,6 @@ resource "azurerm_function_app" "fn_graph" {
   app_service_plan_id        = azurerm_app_service_plan.asp_graph.id
   storage_account_name       = azurerm_storage_account.st_graph.name
   storage_account_access_key = azurerm_storage_account.st_graph.primary_access_key
-  os_type                    = "linux"
 
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY" = var.ai_instrumentation_key,
