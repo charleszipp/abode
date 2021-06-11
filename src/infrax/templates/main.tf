@@ -39,11 +39,12 @@ module "twins" {
 module "graph" {
   source = "./modules/graph"
 
-  location               = var.location
-  location_suffix        = var.location_short
-  env                    = var.env
-  app                    = var.app
-  dt_twins_host_name     = module.twins.dt_twins_host_name
-  dt_twins_id            = module.twins.dt_twins_id
-  ai_instrumentation_key = module.core.ai_instrumentation_key
+  location                           = var.location
+  location_suffix                    = var.location_short
+  env                                = var.env
+  app                                = var.app
+  dt_twins_host_name                 = module.twins.dt_twins_host_name
+  dt_twins_id                        = module.twins.dt_twins_id
+  ai_instrumentation_key             = module.core.ai_instrumentation_key
+  evh_twins_listen_connection_string = module.twins.evh_twins_listen_connection_string
 }

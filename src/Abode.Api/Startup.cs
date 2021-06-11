@@ -31,7 +31,6 @@ namespace Abode.Api
                 .AddScoped<Mediator>(sp => new Mediator(sp))
                 .AddScoped<IHandleCommand<AddThermostat>, AddThermostatHandler>()
                 .AddScoped<IHandleQuery<GetThermostat, Thermostat>, GetThermostatHandler>()
-                .AddScoped<CancellationTokenSource>(sp => new CancellationTokenSource())
                 .AddScoped<DigitalTwinsClient>(sp =>
                     new DigitalTwinsClient(new Uri(config["adt_instance_url"]), new DefaultAzureCredential())
                 );

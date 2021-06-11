@@ -18,7 +18,7 @@ resource "azurerm_storage_account" "st_graph" {
 
 ## FUNC MANAGED IDENTITY
 resource "azurerm_user_assigned_identity" "id_graph" {
-  name = "id${local.suffix}"
+  name                = "id${local.suffix}"
   resource_group_name = azurerm_resource_group.rg_graph.name
   location            = azurerm_resource_group.rg_graph.location
 }
@@ -47,12 +47,13 @@ resource "azurerm_function_app" "fn_graph" {
 
   app_settings = {
     "APPINSIGHTS_INSTRUMENTATIONKEY" = var.ai_instrumentation_key,
-    "DT_INSTANCE_URL"               = "https://${var.dt_twins_host_name}"
+    "adt_instance_url"               = "https://${var.dt_twins_host_name}"
+    "evh_twins_connection_string"    = var.evh_twins_listen_connection_string
   }
 
   identity {
-    type = "UserAssigned"
-    identity_ids = [ azurerm_user_assigned_identity.id_graph.id ]
+    type         = "UserAssigned"
+    identity_ids = [azurerm_user_assigned_identity.id_graph.id]
   }
 }
 

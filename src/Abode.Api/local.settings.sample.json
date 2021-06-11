@@ -1,0 +1,9 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet",
+    "adt_instance_url": "adt instance url",
+    "evh_twins_connection_string": "insert event hub connection string"
+  }
+}

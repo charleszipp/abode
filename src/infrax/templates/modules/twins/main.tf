@@ -41,7 +41,7 @@ resource "azurerm_role_assignment" "id_current_dt_twins_data_owner" {
   principal_id         = data.azurerm_client_config.current.object_id
 }
 
-# EVENT ROUTE
+# EVENT ROUTE HUB /w AUTH
 resource "azurerm_eventhub" "evh_twins" {
   name                = "evh${local.suffix}"
   namespace_name      = var.evh_namespace
@@ -61,6 +61,18 @@ resource "azurerm_eventhub_authorization_rule" "evh_twins_ar_send" {
   manage = false
 }
 
+resource "azurerm_eventhub_authorization_rule" "evh_twins_ar_listen" {
+  name                = "evh-twins-ar-listen"
+  namespace_name      = var.evh_namespace
+  eventhub_name       = azurerm_eventhub.evh_twins.name
+  resource_group_name = var.rg_core_name
+
+  listen = true
+  send   = false
+  manage = false
+}
+
+# ENDPOINT & EVENT ROUTE
 resource "azurerm_digital_twins_endpoint_eventhub" "ep_twins_evh_core" {
   name                                 = "ep-twins-evh-core"
   digital_twins_id                     = azurerm_digital_twins_instance.dt_twins.id

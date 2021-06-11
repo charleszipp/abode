@@ -26,3 +26,7 @@ variable "dt_twins_id" {
   type        = string
   description = "The digital twins instance resource id"
 }
+variable "evh_twins_listen_connection_string"{
+  type = string
+  description = "Connection string to listen to the twins event hub"
+}

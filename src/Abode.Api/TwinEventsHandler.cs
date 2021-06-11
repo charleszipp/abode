@@ -16,32 +16,16 @@ namespace Abode.Api
     public class TwinEventsHandler
     {
         private readonly Mediator _mediator;
-        private readonly CancellationTokenSource _tokenSource;
 
-        public TwinEventsHandler(Mediator mediator, CancellationTokenSource tokenSource)
-        {
+        public TwinEventsHandler(Mediator mediator) => 
             _mediator = mediator;
-            _tokenSource = tokenSource;
-        }
 
-
-        //[FunctionName("twin_changed")]
-        //public void TwinChangedHandler([EventGridTrigger] EventGridEvent e, ILogger log)
-        //{
-        //    var twinChangedEvent = ((JObject)e.Data).SelectToken("$.data").ToObject<TwinChanged>();
-
-        //    // Cloud event doesnt appear to be compatible since ADT event property names contain characters that are not valid with CloudEvent format such as
-        //    // '$'. Deserializing generated error indicating the message contains non-valid ASCII characters. Expects a-z and/or 0-9 only.
-        //    //var twinChangedEvent = e.Data.ToObjectFromJson<TwinChanged>();
-
-        //    log.LogTrace("twin_changed received event", e);
-        //}
-
-        [FunctionName("twin_changed")]
-        public void TwihChangedHandler([EventHubTrigger("ehb-twins-abd", Connection = "event_hubs_ns_connection_string")] TwinChanged e, ILogger log) 
+        [FunctionName("twin_events_handler")]
+        public void Handle([EventHubTrigger("evh-twins", Connection = "evh_twins_connection_string")] EventData e, 
+            ILogger log, 
+            CancellationToken cancellationToken) 
         {
-            //string data = Encoding.UTF8.GetString(e.Body);
-            log.LogInformation("twin_changed received event", e);
+            log.LogInformation("twin event received", e);
         }
     }
 }
