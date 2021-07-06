@@ -18,10 +18,6 @@
 
 To see the basics of how TSI can be configured, after walking through the getting started tutorial linked above, walk through [this tutorial](https://docs.microsoft.com/en-us/azure/time-series-insights/how-to-ingest-data-event-hub) to learn how to connect a TSI instance to an input sink.
 
-### Using Time Series Insights with Azure Digital Twin
-
-With some manipulation, ADT can be configured to forward events to TSI for storage. You would accomplish this by creating an event route between ADT and an Event Hub Namespace, forwarding twin changes directly to one Hub. This Hub can feed into an Azure function which converts JSON patch to JSON containing the twin updated, which forwards it into another hub. This second and final hub can then forward events to TSI. [This walkthrough](https://docs.microsoft.com/en-us/azure/time-series-insights/tutorials-model-sync) gives you all the information you need if you wanted to accomplish this.
-
 ## Things to Consider
 
 - TSI and cold storage are easy to integrate, but how would that work if you wanted to segment data based on some fields in the data?
